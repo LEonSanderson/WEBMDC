@@ -253,80 +253,70 @@
         </div>
 
         <div id="impoundForm">
+             <div class="form-section">
+                <h3>EMPLOYEE INFORMATION</h3>
+                <div class="form-grid">
+                     <div class="form-group">
+                        <label for="officerName">Officer Name</label>
+                        <input type="text" id="officerName" placeholder="e.g., Leon Anderson">
+                    </div>
+                    <div class="form-group">
+                        <label for="officerCallsign">Callsign</label>
+                        <input type="text" id="officerCallsign" placeholder="e.g., 2E14">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>INCIDENT INFORMATION</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="incidentDate">Date of Occurrence</label>
+                        <input type="text" id="incidentDate" placeholder="e.g., 23/6/68">
+                    </div>
+                    <div class="form-group">
+                        <label for="incidentTime">Time of Occurrence</label>
+                        <input type="text" id="incidentTime" placeholder="e.g., 21.35">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="incidentLocation">Location</label>
+                        <input type="text" id="incidentLocation" placeholder="e.g., San Vitus Blvd, West Vinewood">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="reasonForImpound">Reason for Impound</label>
+                        <textarea id="reasonForImpound" placeholder="e.g., ยานพาหนะถูกใช้ในการหลบหนีเจ้าหน้าที่"></textarea>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-section">
                 <h3>VEHICLE INFORMATION</h3>
                 <div class="form-grid">
+                    <div class="form-group">
+                        <label for="ownerName">Registered Owner</label>
+                        <input type="text" id="ownerName" placeholder="e.g., Daniel Krueger">
+                    </div>
                     <div class="form-group">
                         <label for="vehicleModel">Vehicle Model</label>
                         <input type="text" id="vehicleModel" placeholder="e.g., Shitzu Vader">
                     </div>
                     <div class="form-group">
                         <label for="licensePlate">License Plate</label>
-                        <input type="text" id="licensePlate" placeholder="ป้ายทะเบียน">
+                        <input type="text" id="licensePlate" placeholder="e.g., 5CC498IP">
                     </div>
-                    <div class="form-group">
+                     <div class="form-group">
                         <label for="expireDateFine">Expire Date & Fine</label>
                         <input type="text" id="expireDateFine" placeholder="e.g., 23/6/68-24/6/68">
                     </div>
                 </div>
             </div>
             
-            <div class="form-section">
-                <h3>OWNER / DRIVER INFORMATION</h3>
-                <div class="form-grid">
-                    <div class="form-group full-width">
-                        <label for="ownerName">Registered Owner Name</label>
-                        <input type="text" id="ownerName" placeholder="ชื่อเจ้าของรถ">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <h3>INCIDENT & IMPOUND INFORMATION</h3>
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="impoundDate">Date of Occurrence</label>
-                        <input type="text" id="impoundDate" placeholder="วันที่เกิดเหตุ">
-                    </div>
-                    <div class="form-group">
-                        <label for="impoundTime">Time of Occurrence</label>
-                        <input type="text" id="impoundTime" placeholder="เวลาเกิดเหตุ">
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="impoundLocation">Location</label>
-                        <input type="text" id="impoundLocation" placeholder="สถานที่">
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="reasonForImpound">Reason for Impound</label>
-                        <textarea id="reasonForImpound" placeholder="เหตุผลในการยึด..."></textarea>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="form-section">
-                <h3>EMPLOYEE INFORMATION</h3>
-                <div class="form-grid">
-                     <div class="form-group">
-                        <label for="officerName">Officer Name</label>
-                        <input type="text" id="officerName" placeholder="เจ้าหน้าที่ผู้ยึด">
-                    </div>
-                    <div class="form-group">
-                        <label for="officerCallsign">Callsign</label>
-                        <input type="text" id="officerCallsign" placeholder="รหัสเรียกขาน">
-                    </div>
-                     <div class="form-group">
-                        <label for="reportId">Report ID</label>
-                        <input type="text" id="reportId" placeholder="e.g., LSPD-IMPOUND-0001">
-                    </div>
-                </div>
-            </div>
-
              <div class="form-section">
                 <h3>EVIDENCE PHOTO</h3>
                  <div class="form-grid full-width">
                      <div class="form-group">
                         <label for="evidencePhotoText">Photo Links/Names</label>
-                        <textarea id="evidencePhotoText" placeholder="e.g., image.png, N/A"></textarea>
+                        <textarea id="evidencePhotoText" placeholder="e.g., N/A, image.png"></textarea>
                     </div>
                      <div class="form-group">
                         <label for="vehiclePhoto">Photo Upload</label>
@@ -334,6 +324,16 @@
                         <img id="vehiclePhotoPreview" alt="Vehicle Preview" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none; border: 1px dashed #00ff41; padding: 5px;">
                     </div>
                 </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Report ID</h3>
+                 <div class="form-grid" style="grid-template-columns: 1fr;">
+                    <div class="form-group">
+                        <label for="reportId">Report ID</label>
+                        <input type="text" id="reportId" placeholder="e.g., LSPD-IM-0000">
+                    </div>
+                 </div>
             </div>
         </div>
 
@@ -505,70 +505,63 @@
         function printTextReport() {
             const officerName = document.getElementById('officerName').value;
             const officerCallsign = document.getElementById('officerCallsign').value;
-            const impoundDate = document.getElementById('impoundDate').value;
-            const impoundTime = document.getElementById('impoundTime').value;
-            const impoundLocation = document.getElementById('impoundLocation').value;
+            const incidentDate = document.getElementById('impoundDate').value;
+            const incidentTime = document.getElementById('impoundTime').value;
+            const incidentLocation = document.getElementById('impoundLocation').value;
             const reasonForImpound = document.getElementById('reasonForImpound').value;
             const ownerName = document.getElementById('ownerName').value;
             const vehicleModel = document.getElementById('vehicleModel').value;
             const licensePlate = document.getElementById('licensePlate').value;
             const expireDateFine = document.getElementById('expireDateFine').value;
             const evidencePhotoText = document.getElementById('evidencePhotoText').value;
+            const reportId = document.getElementById('reportId').value;
 
-            const submissionDate = new Date().toLocaleString('th-TH', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            }).replace(' พ.ศ. ', ' ');
+            const unixTimestamp = Math.floor(Date.now() / 1000);
 
-            const reportContent = `LSPD VEHICLE IMPOUND REPORT
-,
-Date: ${submissionDate}
+            const evidenceList = evidencePhotoText 
+                ? `- ${evidencePhotoText.replace(/\n/g, '\n- ')}` 
+                : '- N/A';
+
+            const reportContent = `# __LSPD VEHICLE IMPOUND REPORT__
+**Date:** <t:${unixTimestamp}:f>
 ----
-EMPLOYEE INFORMATION:
-,
-Officer Name: ${officerName || ''}
-,
-Callsign: ${officerCallsign || ''}
-,
+### __EMPLOYEE INFORMATION:__
+- **Officer Name:** ${officerName || ''}
+- **Callsign:** ${officerCallsign || ''}
 
----INCIDENT INFORMATION
-Date of Occurrence: ${impoundDate || ''}
-,
-Time of Occurrence: ${impoundTime || ''}
-,
-Location: ${impoundLocation || ''}
-,
-Reason for Impound:
-,
+---
+
+__**INCIDENT INFORMATION**__
+- **Date of Occurrence:** ${incidentDate || ''}
+- **Time of Occurrence:** ${incidentTime || ''}
+- **Location:** ${incidentLocation || ''}
+- **Reason for Impound:**
 ${reasonForImpound || ''}
 
----VEHICLE INFORMATION
-Registered Owner: ${ownerName || ''}
-,
-Vehicle Model: ${vehicleModel || ''}
-,
-License Plate: ${licensePlate || ''}
-,
-Expire Date & Fine: ${expireDateFine || ''}
-,
+---
 
----EVIDENCE PHOTO:
-${evidencePhotoText || 'N/A'}
-,
-${vehiclePhotoData ? 'Image Attached (See PNG Export)' : ''}
-,
+__**VEHICLE INFORMATION**__
+- **Registered Owner:** ${ownerName || ''}
+- **Vehicle Model:** ${vehicleModel || ''}
+- **License Plate:** ${licensePlate || ''}
+- **Expire Date & Fine:** ${expireDateFine || ''}
 
----`;
+---
+
+__**EVIDENCE PHOTO:**__
+${evidenceList}
+- ${vehiclePhotoData ? 'Image Attached (See PNG Export)' : ''}
+
+---
+
+### -- END OF REPORT --
+*${reportId || 'LSPD-IM-0000'} | Los Santos Police Department – Impound Report File*`;
 
             const newWindow = window.open('', '_blank');
             newWindow.document.write('<textarea readonly style="width: 100%; height: 100%; font-family: \'Courier New\', monospace; white-space: pre-wrap; word-wrap: break-word; border: none; resize: none;">' + reportContent + '</textarea>');
             newWindow.document.close();
             newWindow.focus();
         }
-
 
         function clearForm() {
             document.getElementById('impoundForm').reset();
