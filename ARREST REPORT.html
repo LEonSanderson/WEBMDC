@@ -511,48 +511,50 @@
             
             const submissionDate = new Date().toLocaleDateString('en-GB');
 
-            const reportContent = `LSPD ARREST REPORT
-,
-Date: ${submissionDate}
-----OFFICER INFORMATION
-Officer Name: ${officerName || ''}
-,
-Callsign: ${officerCallsign || ''}
-,
+            const chargesList = chargesFiled ? `${chargesFiled.replace(/\n/g, '\n')}` : 'N/A';
+            const bwcList = bwcFootage ? `- ${bwcFootage.replace(/\n/g, '\n- ')}` : '- N/A';
 
----INCIDENT DETAILS
-Date of Occurrence: ${incidentDate || ''}
-,
-Time of Occurrence: ${incidentTime || ''}
-,
-Location: ${incidentLocation || ''}
-,
-
----SUSPECT INFORMATION
-Name: ${suspectName || ''}
-,
-Narrative:
-,
-${narrative || ''}
-
----CHARGES FILED
-${chargesFiled.replace(/\n/g, '\n,') || ''}
-,
-
----TOTAL SENTENCE
-Time/Fine: ${totalSentence || ''}
-,
-
----BWC / DASHCAM / PHOTOS
-${bwcFootage.replace(/\n/g, '\n,') || 'N/A'}
-,
-${evidencePhotoData ? 'Image Attached (See PNG Export)' : 'N/A'}
-,
+            const reportContent = `# __LSPD ARREST REPORT__
+**Date:** ${submissionDate}
+----
+__**OFFICER INFORMATION**__
+- **Officer Name:** ${officerName || ''}
+- **Callsign:** ${officerCallsign || ''}
 
 ---
--- END OF REPORT --
-,
-${reportId || 'LSPD-AR-0000'} | Los Santos Police Department – Arrest Report File`;
+
+__**INCIDENT DETAILS**__
+- **Date of Occurrence:** ${incidentDate || ''}
+- **Time of Occurrence:** ${incidentTime || ''}
+- **Location:** ${incidentLocation || ''}
+
+---
+
+__**SUSPECT INFORMATION**__
+- **Name:** ${suspectName || ''}
+- **Narrative:**
+${narrative || ''}
+
+---
+
+__**CHARGES FILED**__
+${chargesList}
+
+---
+
+__**TOTAL SENTENCE**__
+- **Time/Fine:** ${totalSentence || ''}
+
+---
+
+__**BWC / DASHCAM / PHOTOS**__
+${bwcList}
+- ${evidencePhotoData ? 'Image Attached (See PNG Export)' : 'N/A'}
+
+---
+
+### -- END OF REPORT --
+*${reportId || 'LSPD-AR-0000'} | Los Santos Police Department – Arrest Report File*`;
 
             const newWindow = window.open('', '_blank');
             newWindow.document.write('<textarea readonly style="width: 100%; height: 100%; font-family: \'Courier New\', monospace; white-space: pre-wrap; word-wrap: break-word; border: none; resize: none;">' + reportContent + '</textarea>');
