@@ -432,9 +432,9 @@
             const ownerName = document.getElementById('ownerName').value;
             
             // Impound Info
-            const impoundDate = document.getElementById('impoundDate').value;
-            const impoundTime = document.getElementById('impoundTime').value;
-            const impoundLocation = document.getElementById('impoundLocation').value;
+            const impoundDate = document.getElementById('incidentDate').value;
+            const impoundTime = document.getElementById('incidentTime').value;
+            const impoundLocation = document.getElementById('incidentLocation').value;
             const reasonForImpound = document.getElementById('reasonForImpound').value;
 
             // Officer & Towing
@@ -503,11 +503,11 @@
         }
         
         function printTextReport() {
-            const officerName = document.getElementById('officerName').value;
+             const officerName = document.getElementById('officerName').value;
             const officerCallsign = document.getElementById('officerCallsign').value;
-            const incidentDate = document.getElementById('impoundDate').value;
-            const incidentTime = document.getElementById('impoundTime').value;
-            const incidentLocation = document.getElementById('impoundLocation').value;
+            const incidentDate = document.getElementById('incidentDate').value;
+            const incidentTime = document.getElementById('incidentTime').value;
+            const incidentLocation = document.getElementById('incidentLocation').value;
             const reasonForImpound = document.getElementById('reasonForImpound').value;
             const ownerName = document.getElementById('ownerName').value;
             const vehicleModel = document.getElementById('vehicleModel').value;
@@ -562,6 +562,7 @@ ${evidenceList}
             newWindow.document.close();
             newWindow.focus();
         }
+
 
         function clearForm() {
             document.getElementById('impoundForm').reset();
