@@ -254,69 +254,70 @@
 
         <div id="arrestForm">
             <div class="form-section">
-                <h3>ARRESTEE INFORMATION</h3>
+                <h3>OFFICER INFORMATION</h3>
                 <div class="form-grid">
                     <div class="form-group">
-                        <label for="arresteeName">Arrestee Name</label>
-                        <input type="text" id="arresteeName" placeholder="ชื่อผู้ถูกจับกุม">
+                        <label for="officerName">Officer Name</label>
+                        <input type="text" id="officerName" placeholder="e.g., Alex Johnson">
                     </div>
                     <div class="form-group">
-                        <label for="arresteeDob">Date of Birth</label>
-                        <input type="text" id="arresteeDob" placeholder="วัน/เดือน/ปีเกิด">
-                    </div>
-                    <div class="form-group">
-                        <label for="arresteeSexRace">Sex | Race</label>
-                        <input type="text" id="arresteeSexRace" placeholder="เพศ | เชื้อชาติ">
+                        <label for="officerCallsign">Callsign</label>
+                        <input type="text" id="officerCallsign" placeholder="e.g., 2L22">
                     </div>
                 </div>
             </div>
 
             <div class="form-section">
-                <h3>ARREST DETAILS</h3>
+                <h3>INCIDENT DETAILS</h3>
                 <div class="form-grid">
-                    <div class="form-group">
-                        <label for="arrestingOfficer">Arresting Officer</label>
-                        <input type="text" id="arrestingOfficer" placeholder="ชื่อเจ้าหน้าที่ผู้จับกุม">
-                    </div>
-                    <div class="form-group">
-                        <label for="officerUnit">Unit / Callsign</label>
-                        <input type="text" id="officerUnit" placeholder="หน่วยงาน / รหัสเรียกขาน">
-                    </div>
                      <div class="form-group">
-                        <label for="arrestLocation">Location of Arrest</label>
-                        <input type="text" id="arrestLocation" placeholder="สถานที่จับกุม">
+                        <label for="incidentDate">Date of Occurrence</label>
+                        <input type="text" id="incidentDate" placeholder="e.g., 23/06/2025">
                     </div>
                     <div class="form-group">
-                        <label for="arrestDate">Date of Arrest</label>
-                        <input type="text" id="arrestDate" placeholder="วันที่จับกุม">
+                        <label for="incidentTime">Time of Occurrence</label>
+                        <input type="text" id="incidentTime" placeholder="e.g., 19.30 PM">
                     </div>
-                    <div class="form-group">
-                        <label for="arrestTime">Time of Arrest</label>
-                        <input type="text" id="arrestTime" placeholder="เวลาที่จับกุม">
+                    <div class="form-group full-width">
+                        <label for="incidentLocation">Location</label>
+                        <input type="text" id="incidentLocation" placeholder="e.g., Adam's Apple Boulevard">
                     </div>
                 </div>
             </div>
 
             <div class="form-section">
-                <h3 class="full-width">CHARGES</h3>
-                <div class="form-group full-width">
-                    <textarea id="charges" placeholder="รายการข้อหา..."></textarea>
-                </div>
-            </div>
-
-             <div class="form-section">
-                <h3 class="full-width">PROBABLE CAUSE NARRATIVE</h3>
-                <div class="form-group full-width">
-                    <textarea id="narrative" placeholder="บรรยายเหตุอันควรเชื่อ..."></textarea>
+                <h3>SUSPECT INFORMATION</h3>
+                 <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="suspectName">Name</label>
+                        <input type="text" id="suspectName" placeholder="e.g., Evans Certer">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="narrative">Narrative</label>
+                        <textarea id="narrative" placeholder="บรรยายเหตุการณ์..."></textarea>
+                    </div>
                 </div>
             </div>
 
             <div class="form-section">
-                <h3 class="full-width">EVIDENCE BOOKED</h3>
+                <h3 class="full-width">CHARGES & SENTENCE</h3>
                 <div class="form-group full-width">
-                    <textarea id="evidenceBooked" placeholder="รายการของกลางที่ยึด..."></textarea>
+                     <label for="chargesFiled">Charges Filed</label>
+                    <textarea id="chargesFiled" placeholder="รายการข้อหา..."></textarea>
                 </div>
+                <div class="form-group full-width">
+                     <label for="totalSentence">Total Sentence (Time/Fine)</label>
+                    <input type="text" id="totalSentence" placeholder="e.g., 10 Mins / 2,450 $">
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3>ATTACHMENTS</h3>
                  <div class="form-group full-width">
+                     <label for="bwcFootage">BWC / DASHCAM / PHOTOS</label>
+                    <textarea id="bwcFootage" placeholder="Links, file names, or N/A"></textarea>
+                </div>
+                <div class="form-group full-width">
                     <label for="evidencePhoto">Evidence Photo Upload</label>
                     <input type="file" id="evidencePhoto" accept="image/*" onchange="handleEvidencePhoto(this)">
                     <img id="evidencePreview" alt="Evidence Preview" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none; border: 1px dashed #00ff41; padding: 5px;">
@@ -328,7 +329,7 @@
                  <div class="form-grid" style="grid-template-columns: 1fr;">
                     <div class="form-group">
                         <label for="reportId">Report ID (DR#)</label>
-                        <input type="text" id="reportId" placeholder="e.g., LSPD-AR-0001">
+                        <input type="text" id="reportId" placeholder="e.g., LSPD-AR-0002">
                     </div>
                  </div>
             </div>
@@ -361,28 +362,28 @@
             </div>
 
             <div class="lapd-section">
-                <div class="lapd-section-title">ARRESTEE INFORMATION</div>
-                 <div class="lapd-content-block" id="exportArresteeInfo"></div>
+                <div class="lapd-section-title">OFFICER INFORMATION</div>
+                <div class="lapd-content-block" id="exportOfficerInfo"></div>
             </div>
             
             <div class="lapd-section">
-                <div class="lapd-section-title">ARREST DETAILS</div>
-                <div class="lapd-content-block" id="exportArrestDetails"></div>
+                <div class="lapd-section-title">INCIDENT DETAILS</div>
+                <div class="lapd-content-block" id="exportIncidentDetails"></div>
             </div>
 
             <div class="lapd-section">
-                <div class="lapd-section-title">CHARGES</div>
-                <div class="lapd-content-block" id="exportCharges"></div>
-            </div>
-
-            <div class="lapd-section">
-                <div class="lapd-section-title">PROBABLE CAUSE NARRATIVE</div>
-                <div class="lapd-content-block" id="exportNarrative"></div>
+                <div class="lapd-section-title">SUSPECT INFORMATION & NARRATIVE</div>
+                <div class="lapd-content-block" id="exportSuspectInfo"></div>
             </div>
             
             <div class="lapd-section">
-                <div class="lapd-section-title">EVIDENCE BOOKED</div>
-                <div class="lapd-content-block" id="exportEvidence"></div>
+                <div class="lapd-section-title">CHARGES FILED & TOTAL SENTENCE</div>
+                <div class="lapd-content-block" id="exportChargesInfo"></div>
+            </div>
+
+            <div class="lapd-section">
+                <div class="lapd-section-title">ATTACHMENTS</div>
+                <div class="lapd-content-block" id="exportAttachments"></div>
             </div>
 
             <div class="lapd-section" id="exportEvidencePhotoSection" style="display:none;">
@@ -425,36 +426,35 @@
         }
 
         function populateExportDocument() {
-            const arresteeName = document.getElementById('arresteeName').value;
-            const arresteeDob = document.getElementById('arresteeDob').value;
-            const arresteeSexRace = document.getElementById('arresteeSexRace').value;
-            const arrestingOfficer = document.getElementById('arrestingOfficer').value;
-            const officerUnit = document.getElementById('officerUnit').value;
-            const arrestLocation = document.getElementById('arrestLocation').value;
-            const arrestDate = document.getElementById('arrestDate').value;
-            const arrestTime = document.getElementById('arrestTime').value;
-            const charges = document.getElementById('charges').value;
+            const officerName = document.getElementById('officerName').value;
+            const officerCallsign = document.getElementById('officerCallsign').value;
+            const incidentDate = document.getElementById('incidentDate').value;
+            const incidentTime = document.getElementById('incidentTime').value;
+            const incidentLocation = document.getElementById('incidentLocation').value;
+            const suspectName = document.getElementById('suspectName').value;
             const narrative = document.getElementById('narrative').value;
-            const evidenceBooked = document.getElementById('evidenceBooked').value;
+            const chargesFiled = document.getElementById('chargesFiled').value;
+            const totalSentence = document.getElementById('totalSentence').value;
+            const bwcFootage = document.getElementById('bwcFootage').value;
             const reportId = document.getElementById('reportId').value;
             
             document.getElementById('exportReportIdHeader').textContent = reportId || 'N/A';
             
-            document.getElementById('exportArresteeInfo').textContent =
-                `Arrestee Name: ${arresteeName || 'N/A'}\n` +
-                `Date of Birth: ${arresteeDob || 'N/A'}\n` +
-                `Sex | Race: ${arresteeSexRace || 'N/A'}`;
+            document.getElementById('exportOfficerInfo').textContent =
+                `Officer Name: ${officerName || 'N/A'}\nCallsign: ${officerCallsign || 'N/A'}`;
             
-            document.getElementById('exportArrestDetails').textContent =
-                `Arresting Officer: ${arrestingOfficer || 'N/A'}\n` +
-                `Unit / Callsign: ${officerUnit || 'N/A'}\n` +
-                `Date of Arrest: ${arrestDate || 'N/A'}\n` +
-                `Time of Arrest: ${arrestTime || 'N/A'}\n` +
-                `Location of Arrest: ${arrestLocation || 'N/A'}`;
+            document.getElementById('exportIncidentDetails').textContent =
+                `Date of Occurrence: ${incidentDate || 'N/A'}\n` +
+                `Time of Occurrence: ${incidentTime || 'N/A'}\n` +
+                `Location: ${incidentLocation || 'N/A'}`;
 
-            document.getElementById('exportCharges').textContent = charges || 'N/A';
-            document.getElementById('exportNarrative').textContent = narrative || 'N/A';
-            document.getElementById('exportEvidence').textContent = evidenceBooked || 'N/A';
+            document.getElementById('exportSuspectInfo').textContent = 
+                `Name: ${suspectName || 'N/A'}\n\nNarrative:\n${narrative || 'N/A'}`;
+            
+            document.getElementById('exportChargesInfo').textContent =
+                `Charges:\n${chargesFiled || 'N/A'}\n\nTotal Sentence: ${totalSentence || 'N/A'}`;
+            
+            document.getElementById('exportAttachments').textContent = bwcFootage || 'N/A';
 
             const exportPhotoSection = document.getElementById('exportEvidencePhotoSection');
             const exportPhotoImage = document.getElementById('exportEvidencePhoto');
@@ -497,53 +497,62 @@
         }
 
         function printTextReport() {
-            const arresteeName = document.getElementById('arresteeName').value;
-            const arresteeDob = document.getElementById('arresteeDob').value;
-            const arresteeSexRace = document.getElementById('arresteeSexRace').value;
-            const arrestingOfficer = document.getElementById('arrestingOfficer').value;
-            const officerUnit = document.getElementById('officerUnit').value;
-            const arrestLocation = document.getElementById('arrestLocation').value;
-            const arrestDate = document.getElementById('arrestDate').value;
-            const arrestTime = document.getElementById('arrestTime').value;
-            const charges = document.getElementById('charges').value;
+            const officerName = document.getElementById('officerName').value;
+            const officerCallsign = document.getElementById('officerCallsign').value;
+            const incidentDate = document.getElementById('incidentDate').value;
+            const incidentTime = document.getElementById('incidentTime').value;
+            const incidentLocation = document.getElementById('incidentLocation').value;
+            const suspectName = document.getElementById('suspectName').value;
             const narrative = document.getElementById('narrative').value;
-            const evidenceBooked = document.getElementById('evidenceBooked').value;
+            const chargesFiled = document.getElementById('chargesFiled').value;
+            const totalSentence = document.getElementById('totalSentence').value;
+            const bwcFootage = document.getElementById('bwcFootage').value;
             const reportId = document.getElementById('reportId').value;
             
-            const unixTimestamp = Math.floor(Date.now() / 1000);
-            
-            const reportContent = `# __ARREST REPORT__
-**Date Submitted:** <t:${unixTimestamp}:f>
-----
-### __ARRESTEE INFORMATION:__
-- **Arrestee Name:** ${arresteeName || ''}
-- **Date of Birth:** ${arresteeDob || ''}
-- **Sex | Race:** ${arresteeSexRace || ''}
+            const submissionDate = new Date().toLocaleDateString('en-GB');
 
----
-### __ARREST DETAILS:__
-- **Arresting Officer:** ${arrestingOfficer || ''}
-- **Unit / Callsign:** ${officerUnit || ''}
-- **Date & Time of Arrest:** ${arrestDate || ''}, ${arrestTime || ''}
-- **Location of Arrest:** ${arrestLocation || ''}
+            const reportContent = `LSPD ARREST REPORT
+,
+Date: ${submissionDate}
+----OFFICER INFORMATION
+Officer Name: ${officerName || ''}
+,
+Callsign: ${officerCallsign || ''}
+,
 
----
-### __CHARGES__
-\`\`\`
-${charges || 'N/A'}
-\`\`\`
----
-### __PROBABLE CAUSE NARRATIVE__
+---INCIDENT DETAILS
+Date of Occurrence: ${incidentDate || ''}
+,
+Time of Occurrence: ${incidentTime || ''}
+,
+Location: ${incidentLocation || ''}
+,
+
+---SUSPECT INFORMATION
+Name: ${suspectName || ''}
+,
+Narrative:
+,
 ${narrative || ''}
----
-### __EVIDENCE BOOKED:__
-- ${evidenceBooked.replace(/\n/g, '\n- ') || 'N/A'}
-- **Evidence Photo:** ${evidencePhotoData ? 'Image Attached (See PNG Export)' : 'N/A'}
+
+---CHARGES FILED
+${chargesFiled.replace(/\n/g, '\n,') || ''}
+,
+
+---TOTAL SENTENCE
+Time/Fine: ${totalSentence || ''}
+,
+
+---BWC / DASHCAM / PHOTOS
+${bwcFootage.replace(/\n/g, '\n,') || 'N/A'}
+,
+${evidencePhotoData ? 'Image Attached (See PNG Export)' : 'N/A'}
+,
 
 ---
 -- END OF REPORT --
-*Filed by: ${arrestingOfficer || 'undefined'} | Unit: ${officerUnit || 'N/A'}
-*${reportId || 'LSPD-AR-0000'} | Los Santos Police Department - Arrest Report File*`;
+,
+${reportId || 'LSPD-AR-0000'} | Los Santos Police Department – Arrest Report File`;
 
             const newWindow = window.open('', '_blank');
             newWindow.document.write('<textarea readonly style="width: 100%; height: 100%; font-family: \'Courier New\', monospace; white-space: pre-wrap; word-wrap: break-word; border: none; resize: none;">' + reportContent + '</textarea>');
