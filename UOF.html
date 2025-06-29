@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Police Arrest Report System</title>
+    <title>Police Use of Force Report System</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         /* General styling for the retro terminal look */
@@ -66,9 +66,9 @@
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            gap: 20px;
         }
-
+        
         .form-group {
             display: flex;
             flex-direction: column;
@@ -102,7 +102,7 @@
 
         textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 80px;
         }
         
         /* Buttons */
@@ -248,89 +248,84 @@
 <body>
     <div class="mdc-container">
         <div class="header">
-            <h1>ARREST REPORT</h1>
-            <div>Los Santos Police Department - Arrest Terminal</div>
+            <h1>USE OF FORCE REPORT</h1>
+            <div>Los Santos Police Department - Use of Force Terminal</div>
         </div>
 
-        <div id="arrestForm">
+        <div id="uofForm">
             <div class="form-section">
-                <h3>ARRESTEE INFORMATION</h3>
+                <h3>EMPLOYEE INFORMATION</h3>
                 <div class="form-grid">
                     <div class="form-group">
-                        <label for="arresteeName">Arrestee Name</label>
-                        <input type="text" id="arresteeName" placeholder="ชื่อผู้ถูกจับกุม">
+                        <label for="officerName">Officer Name</label>
+                        <input type="text" id="officerName" placeholder="e.g., Officer Johnson">
                     </div>
                     <div class="form-group">
-                        <label for="arresteeDob">Date of Birth</label>
-                        <input type="text" id="arresteeDob" placeholder="วัน/เดือน/ปีเกิด">
-                    </div>
-                    <div class="form-group">
-                        <label for="arresteeSexRace">Sex | Race</label>
-                        <input type="text" id="arresteeSexRace" placeholder="เพศ | เชื้อชาติ">
+                        <label for="callsignUnit">Callsign / Unit</label>
+                        <input type="text" id="callsignUnit" placeholder="e.g., 2L22 / Patrol">
                     </div>
                 </div>
             </div>
 
             <div class="form-section">
-                <h3>ARREST DETAILS</h3>
+                <h3>INCIDENT INFORMATION</h3>
                 <div class="form-grid">
                     <div class="form-group">
-                        <label for="arrestingOfficer">Arresting Officer</label>
-                        <input type="text" id="arrestingOfficer" placeholder="ชื่อเจ้าหน้าที่ผู้จับกุม">
+                        <label for="incidentTime">Time of Occurrence</label>
+                        <input type="text" id="incidentTime" placeholder="e.g., 19:30">
                     </div>
                     <div class="form-group">
-                        <label for="officerUnit">Unit / Callsign</label>
-                        <input type="text" id="officerUnit" placeholder="หน่วยงาน / รหัสเรียกขาน">
+                        <label for="incidentDate">Date of Occurrence</label>
+                        <input type="text" id="incidentDate" placeholder="e.g., 23/06/2025">
                     </div>
-                     <div class="form-group">
-                        <label for="arrestLocation">Location of Arrest</label>
-                        <input type="text" id="arrestLocation" placeholder="สถานที่จับกุม">
-                    </div>
-                    <div class="form-group">
-                        <label for="arrestDate">Date of Arrest</label>
-                        <input type="text" id="arrestDate" placeholder="วันที่จับกุม">
-                    </div>
-                    <div class="form-group">
-                        <label for="arrestTime">Time of Arrest</label>
-                        <input type="text" id="arrestTime" placeholder="เวลาที่จับกุม">
+                    <div class="form-group full-width">
+                        <label for="incidentLocation">Location</label>
+                        <input type="text" id="incidentLocation" placeholder="e.g., Grove Street">
                     </div>
                 </div>
             </div>
 
             <div class="form-section">
-                <h3 class="full-width">CHARGES</h3>
-                <div class="form-group full-width">
-                    <textarea id="charges" placeholder="รายการข้อหา..."></textarea>
-                </div>
-            </div>
-
-             <div class="form-section">
-                <h3 class="full-width">PROBABLE CAUSE NARRATIVE</h3>
-                <div class="form-group full-width">
-                    <textarea id="narrative" placeholder="บรรยายเหตุอันควรเชื่อ..."></textarea>
+                <h3>NARRATIVE</h3>
+                <div class="form-grid full-width">
+                    <div class="form-group">
+                        <label for="uofType">UOF Type</label>
+                        <input type="text" id="uofType" placeholder="e.g., Taser, Baton, Lethal Force">
+                    </div>
+                    <div class="form-group">
+                        <label for="narrativeText">Narrative Details</label>
+                        <textarea id="narrativeText" placeholder="Detailed description of the use of force incident..."></textarea>
+                    </div>
                 </div>
             </div>
 
             <div class="form-section">
-                <h3 class="full-width">EVIDENCE BOOKED</h3>
-                <div class="form-group full-width">
-                    <textarea id="evidenceBooked" placeholder="รายการของกลางที่ยึด..."></textarea>
-                </div>
-                 <div class="form-group full-width">
-                    <label for="evidencePhoto">Evidence Photo Upload</label>
-                    <input type="file" id="evidencePhoto" accept="image/*" onchange="handleEvidencePhoto(this)">
-                    <img id="evidencePreview" alt="Evidence Preview" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none; border: 1px dashed #00ff41; padding: 5px;">
+                <h3>EVIDENCE & RECORDINGS</h3>
+                <div class="form-grid full-width">
+                    <div class="form-group">
+                        <label for="supportingEvidence">Supporting Evidence</label>
+                        <textarea id="supportingEvidence" placeholder="Any physical evidence, documents, etc."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="bwcFootage">BWC / Dashboard Footage / Images</label>
+                        <textarea id="bwcFootage" placeholder="Links, file names, or N/A"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="evidencePhoto">Evidence Photo Upload</label>
+                        <input type="file" id="evidencePhoto" accept="image/*" onchange="handleEvidencePhoto(this)">
+                        <img id="evidencePreview" alt="Evidence Preview" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none; border: 1px dashed #00ff41; padding: 5px;">
+                    </div>
                 </div>
             </div>
 
-             <div class="form-section">
-                <h3>Report ID</h3>
-                 <div class="form-grid" style="grid-template-columns: 1fr;">
+            <div class="form-section">
+                <h3>REPORT ID</h3>
+                <div class="form-grid full-width">
                     <div class="form-group">
-                        <label for="reportId">Report ID (DR#)</label>
-                        <input type="text" id="reportId" placeholder="e.g., LSPD-AR-0001">
+                        <label for="reportId">Report ID</label>
+                        <input type="text" id="reportId" placeholder="e.g., LSPD-UOF-0001">
                     </div>
-                 </div>
+                </div>
             </div>
         </div>
 
@@ -341,7 +336,6 @@
         </div>
     </div>
 
-    <!-- Hidden printable area -->
     <div id="exportDocumentContainer" style="position: absolute; left: -9999px; top: 0;">
         <div class="export-document" id="exportDocument">
             <div class="lapd-header">
@@ -352,7 +346,7 @@
                 </div>
                 <div class="lapd-header-text">
                     <h1>LOS SANTOS POLICE DEPARTMENT</h1>
-                    <h2>ARREST REPORT</h2>
+                    <h2>USE OF FORCE REPORT</h2>
                 </div>
                 <div class="lapd-dr-box">
                     <div class="dr-label">DR. NO.</div>
@@ -361,28 +355,23 @@
             </div>
 
             <div class="lapd-section">
-                <div class="lapd-section-title">ARRESTEE INFORMATION</div>
-                 <div class="lapd-content-block" id="exportArresteeInfo"></div>
+                <div class="lapd-section-title">EMPLOYEE INFORMATION</div>
+                <div class="lapd-content-block" id="exportOfficerInfo"></div>
             </div>
             
             <div class="lapd-section">
-                <div class="lapd-section-title">ARREST DETAILS</div>
-                <div class="lapd-content-block" id="exportArrestDetails"></div>
+                <div class="lapd-section-title">INCIDENT INFORMATION</div>
+                <div class="lapd-content-block" id="exportIncidentInfo"></div>
             </div>
 
             <div class="lapd-section">
-                <div class="lapd-section-title">CHARGES</div>
-                <div class="lapd-content-block" id="exportCharges"></div>
-            </div>
-
-            <div class="lapd-section">
-                <div class="lapd-section-title">PROBABLE CAUSE NARRATIVE</div>
+                <div class="lapd-section-title">NARRATIVE</div>
                 <div class="lapd-content-block" id="exportNarrative"></div>
             </div>
-            
+
             <div class="lapd-section">
-                <div class="lapd-section-title">EVIDENCE BOOKED</div>
-                <div class="lapd-content-block" id="exportEvidence"></div>
+                <div class="lapd-section-title">EVIDENCE & RECORDINGS</div>
+                <div class="lapd-content-block" id="exportEvidenceRecordings"></div>
             </div>
 
             <div class="lapd-section" id="exportEvidencePhotoSection" style="display:none;">
@@ -400,7 +389,7 @@
     </div>
 
     <div class="status-bar">
-        STATUS: ONLINE | USER: OFFICER | TERMINAL: AR-001 | <span id="currentTime"></span>
+        STATUS: ONLINE | USER: OFFICER | TERMINAL: UOF-001 | <span id="currentTime"></span>
     </div>
 
     <script>
@@ -425,36 +414,43 @@
         }
 
         function populateExportDocument() {
-            const arresteeName = document.getElementById('arresteeName').value;
-            const arresteeDob = document.getElementById('arresteeDob').value;
-            const arresteeSexRace = document.getElementById('arresteeSexRace').value;
-            const arrestingOfficer = document.getElementById('arrestingOfficer').value;
-            const officerUnit = document.getElementById('officerUnit').value;
-            const arrestLocation = document.getElementById('arrestLocation').value;
-            const arrestDate = document.getElementById('arrestDate').value;
-            const arrestTime = document.getElementById('arrestTime').value;
-            const charges = document.getElementById('charges').value;
-            const narrative = document.getElementById('narrative').value;
-            const evidenceBooked = document.getElementById('evidenceBooked').value;
+            // Employee Info
+            const officerName = document.getElementById('officerName').value;
+            const callsignUnit = document.getElementById('callsignUnit').value;
+
+            // Incident Info
+            const incidentTime = document.getElementById('incidentTime').value;
+            const incidentDate = document.getElementById('incidentDate').value;
+            const incidentLocation = document.getElementById('incidentLocation').value;
+
+            // Narrative
+            const uofType = document.getElementById('uofType').value;
+            const narrativeText = document.getElementById('narrativeText').value;
+
+            // Evidence & Recordings
+            const supportingEvidence = document.getElementById('supportingEvidence').value;
+            const bwcFootage = document.getElementById('bwcFootage').value;
             const reportId = document.getElementById('reportId').value;
             
+            // --- Populate Export Document ---
             document.getElementById('exportReportIdHeader').textContent = reportId || 'N/A';
             
-            document.getElementById('exportArresteeInfo').textContent =
-                `Arrestee Name: ${arresteeName || 'N/A'}\n` +
-                `Date of Birth: ${arresteeDob || 'N/A'}\n` +
-                `Sex | Race: ${arresteeSexRace || 'N/A'}`;
-            
-            document.getElementById('exportArrestDetails').textContent =
-                `Arresting Officer: ${arrestingOfficer || 'N/A'}\n` +
-                `Unit / Callsign: ${officerUnit || 'N/A'}\n` +
-                `Date of Arrest: ${arrestDate || 'N/A'}\n` +
-                `Time of Arrest: ${arrestTime || 'N/A'}\n` +
-                `Location of Arrest: ${arrestLocation || 'N/A'}`;
+            document.getElementById('exportOfficerInfo').textContent =
+                `Officer Name: ${officerName || 'N/A'}\n` +
+                `Callsign / Unit: ${callsignUnit || 'N/A'}`;
 
-            document.getElementById('exportCharges').textContent = charges || 'N/A';
-            document.getElementById('exportNarrative').textContent = narrative || 'N/A';
-            document.getElementById('exportEvidence').textContent = evidenceBooked || 'N/A';
+            document.getElementById('exportIncidentInfo').textContent = 
+                `Time of Occurrence: ${incidentTime || 'N/A'}\n` +
+                `Date of Occurrence: ${incidentDate || 'N/A'}\n` +
+                `Location: ${incidentLocation || 'N/A'}`;
+            
+            document.getElementById('exportNarrative').textContent =
+                `UOF TYPE: ${uofType || 'N/A'}\n\n` +
+                `${narrativeText || 'N/A'}`;
+            
+            document.getElementById('exportEvidenceRecordings').textContent =
+                `Supporting Evidence: ${supportingEvidence || 'N/A'}\n` +
+                `BWC / Dashboard Footage: ${bwcFootage || 'N/A'}`;
 
             const exportPhotoSection = document.getElementById('exportEvidencePhotoSection');
             const exportPhotoImage = document.getElementById('exportEvidencePhoto');
@@ -467,7 +463,7 @@
             }
 
             document.getElementById('exportReportIdFooter').textContent = 
-                `${reportId || 'LSPD-AR-0000'} | Los Santos Police Department – Arrest Report File`;
+                `${reportId || 'LSPD-UOF-0000'} | Los Santos Police Department - Use Of Force Report File`;
         }
 
         async function exportToPNG() {
@@ -484,7 +480,7 @@
                 });
                 const imgData = canvas.toDataURL('image/png');
                 const link = document.createElement('a');
-                link.download = `${document.getElementById('reportId').value || 'Arrest_Report'}.png`;
+                link.download = `${document.getElementById('reportId').value || 'UOF_Report'}.png`;
                 link.href = imgData;
                 link.click();
             } catch (error) {
@@ -495,55 +491,55 @@
                 exportElement.style.display = 'none';
             }
         }
-
+        
         function printTextReport() {
-            const arresteeName = document.getElementById('arresteeName').value;
-            const arresteeDob = document.getElementById('arresteeDob').value;
-            const arresteeSexRace = document.getElementById('arresteeSexRace').value;
-            const arrestingOfficer = document.getElementById('arrestingOfficer').value;
-            const officerUnit = document.getElementById('officerUnit').value;
-            const arrestLocation = document.getElementById('arrestLocation').value;
-            const arrestDate = document.getElementById('arrestDate').value;
-            const arrestTime = document.getElementById('arrestTime').value;
-            const charges = document.getElementById('charges').value;
-            const narrative = document.getElementById('narrative').value;
-            const evidenceBooked = document.getElementById('evidenceBooked').value;
+            const officerName = document.getElementById('officerName').value;
+            const callsignUnit = document.getElementById('callsignUnit').value;
+            const incidentTime = document.getElementById('incidentTime').value;
+            const incidentDate = document.getElementById('incidentDate').value;
+            const incidentLocation = document.getElementById('incidentLocation').value;
+            const uofType = document.getElementById('uofType').value;
+            const narrativeText = document.getElementById('narrativeText').value;
+            const supportingEvidence = document.getElementById('supportingEvidence').value;
+            const bwcFootage = document.getElementById('bwcFootage').value;
             const reportId = document.getElementById('reportId').value;
-            
-            const unixTimestamp = Math.floor(Date.now() / 1000);
-            
-            const reportContent = `# __ARREST REPORT__
+
+            // Get current timestamp for "Date Submitted"
+            const unixTimestamp = Math.floor(Date.now() / 1000); // Current Unix timestamp
+
+            const bwcList = bwcFootage 
+                ? bwcFootage.split('\n').map(line => `- ${line.trim()}`).join('\n')
+                : '- N/A';
+
+            const reportContent = `# __USE OF FORCE REPORT__
 **Date Submitted:** <t:${unixTimestamp}:f>
 ----
-### __ARRESTEE INFORMATION:__
-- **Arrestee Name:** ${arresteeName || ''}
-- **Date of Birth:** ${arresteeDob || ''}
-- **Sex | Race:** ${arresteeSexRace || ''}
+### __EMPLOYEE INFORMATION:__
+- **Officer Name:** ${officerName || 'N/A'}
+- **Callsign / Unit:** ${callsignUnit || 'N/A'}
 
 ---
-### __ARREST DETAILS:__
-- **Arresting Officer:** ${arrestingOfficer || ''}
-- **Unit / Callsign:** ${officerUnit || ''}
-- **Date & Time of Arrest:** ${arrestDate || ''}, ${arrestTime || ''}
-- **Location of Arrest:** ${arrestLocation || ''}
+### __INCIDENT INFORMATION:__
+- **Time of Occurrence:** ${incidentTime || 'N/A'}
+- **Date of Occurrence:** ${incidentDate || 'N/A'}
+- **Location:** ${incidentLocation || 'N/A'}
 
 ---
-### __CHARGES__
-\`\`\`
-${charges || 'N/A'}
-\`\`\`
+### __NARRATIVE__
+**UOF TYPE:** ${uofType || 'N/A'}
+
+${narrativeText || 'N/A'}
+
 ---
-### __PROBABLE CAUSE NARRATIVE__
-${narrative || ''}
----
-### __EVIDENCE BOOKED:__
-- ${evidenceBooked.replace(/\n/g, '\n- ') || 'N/A'}
+### __EVIDENCE & RECORDINGS:__
+- **Supporting Evidence:** ${supportingEvidence || 'N/A'}
+- **BWC / Dashboard Footage:** ${bwcList}
 - **Evidence Photo:** ${evidencePhotoData ? 'Image Attached (See PNG Export)' : 'N/A'}
 
 ---
 -- END OF REPORT --
-*Filed by: ${arrestingOfficer || 'undefined'} | Unit: ${officerUnit || 'N/A'}
-*${reportId || 'LSPD-AR-0000'} | Los Santos Police Department - Arrest Report File*`;
+*Filed by: ${officerName || 'N/A'} | Unit: ${callsignUnit || 'N/A'}
+*${reportId || 'LSPD-UOF-0000'} | Los Santos Police Department - Use Of Force Report File*`;
 
             const newWindow = window.open('', '_blank');
             newWindow.document.write('<textarea readonly style="width: 100%; height: 100%; font-family: \'Courier New\', monospace; white-space: pre-wrap; word-wrap: break-word; border: none; resize: none;">' + reportContent + '</textarea>');
@@ -552,7 +548,7 @@ ${narrative || ''}
         }
 
         function clearForm() {
-            document.getElementById('arrestForm').reset();
+            document.getElementById('uofForm').reset();
             document.getElementById('evidencePreview').style.display = 'none';
             document.getElementById('evidencePreview').src = '';
             evidencePhotoData = null;
